@@ -1099,8 +1099,12 @@ appEmpresa.controller("controladorEmpresaLiquidacionNueva", function($scope, $ht
                             if(res.data.exito){
                                 var deducciones = parseFloat($scope.egreso.porcentajeDeducciones) / 100;
                                 var desc = res.data.montoBaseNominal * deducciones;
-                                var montoBase = deducciones - desc;
+                                //var montoBase = deducciones - desc;
+                                var montoBase = res.data.montoBaseNominal - desc;
                                 console.log("días licencia no gozados: " + res.data.diasLicenciaNoGozados);
+                                console.log("monto base nominal: " + res.data.montoBaseNominal);
+                                console.log("descuentos: " + desc)
+                                console.log("monto baste Egreso: " + montoBase);
                                 $scope.egreso.licenciaNoGozada = Math.round(res.data.diasLicenciaNoGozados * montoBase / 30 * 100) / 100;
                                 $scope.egreso.salarioVacacional = Math.round(res.data.diasLicenciaNoGozados * montoBase / 30 * 100) / 100;
                                 $scope.egreso.aguinaldo = Math.round(res.data.aguinaldo * 100) / 100;
