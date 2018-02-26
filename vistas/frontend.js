@@ -1100,7 +1100,8 @@ appEmpresa.controller("controladorEmpresaLiquidacionNueva", function($scope, $ht
                                 var deducciones = parseFloat($scope.egreso.porcentajeDeducciones) / 100;
                                 var desc = res.data.montoBaseNominal * deducciones;
                                 //var montoBase = deducciones - desc;
-                                var montoBase = res.data.montoBaseNominal - desc;
+                                //var montoBase = res.data.montoBaseNominal - desc;
+                                var montoBase = res.data.montoBaseNominal;
                                 console.log("días licencia no gozados: " + res.data.diasLicenciaNoGozados);
                                 console.log("monto base nominal: " + res.data.montoBaseNominal);
                                 console.log("descuentos: " + desc)
